@@ -5,12 +5,19 @@ let protoArray4 = "Comma-spaces, might, require, typing, caution";
 
 strings = [protoArray1, protoArray2, protoArray3, protoArray4];
 
+
+
 //2) 
 function reverseCommas() {
 	//TODO: 1. create and instantiate your variables.
 	let check;
 	let output;
+
+	check = [strings[0].includes(","),strings[1].includes(","),strings[2].includes(","),strings[3].includes(",")];
+	
 	//TODO: 2. write the code required for this step
+
+	output = strings[check.indexOf(true)].split(",").reverse().join(",");
 
 	//NOTE: For the code to run properly, you must return your output.  this needs to be the final line of code within the function's { }.
 	return output;
@@ -22,7 +29,10 @@ function semiDash() {
 	let output;
 //TODO: write the code required for this step
 
+	check = [strings[0].includes(";"),strings[1].includes(";"),strings[2].includes(";"),strings[3].includes(";")];
   
+	output = strings[check.indexOf(true)].split(";").sort().join("-");
+
 	return output;
 }
 
@@ -32,6 +42,10 @@ function reverseSpaces() {
 	let output;
   //TODO: write the code required for this step
 
+  	check = [strings[0].includes(" "),strings[1].includes(" "),strings[2].includes(" "),strings[3].includes(" ")];
+  
+  	output = strings[check.indexOf(true)].split(" ").sort().reverse().join(" ");
+
 	return output;
 }
 
@@ -40,6 +54,10 @@ function commaSpace() {
 	let check;
 	let output;
 	//TODO: write the code required for this step
+
+	check = [strings[0].includes(", "),strings[1].includes(", "),strings[2].includes(", "),strings[3].includes(", ")];
+
+	output = strings[check.indexOf(true)].split(", ").reverse().join(",");
   
 	return output;
 }

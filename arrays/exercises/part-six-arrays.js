@@ -41,3 +41,22 @@ console.log(intergalacticTable[1][0][0]);
 console.log(intergalacticTable[1][1][0]);
 console.log(intergalacticTable[1][0][1]);
 console.log(intergalacticTable[1][1][1]);
+
+let phrase = "JavaScript rocks!";
+console.log(phrase[phrase.length - 8]);
+
+console.log('Launch\nCode');
+
+let groceryBag = ['bananas', 'apples', 'edamame', 'chips', 'cucumbers', 'milk', 'cheese'];
+let selectedItems = [];
+
+selectedItems = groceryBag.slice(2, 5).sort();
+console.log(selectedItems);
+
+const school = [
+    ["science", "computer", "art"],
+    ["Jones", "Willoughby", "Rhodes"]
+ ];
+
+school[0].push("dance");
+console.log(school[0]);
