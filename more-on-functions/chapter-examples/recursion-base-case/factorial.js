@@ -1,7 +1,7 @@
 //The following concept check assumes that only positive integers are passed to the function.
 
 function factorial(integer){
-  if (/*enter base case test here*/){
+  if (integer === 1){
     return integer;
   } else {
     return integer*(factorial(integer-1));
