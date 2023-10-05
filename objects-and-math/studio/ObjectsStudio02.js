@@ -1,14 +1,40 @@
 // Code your orbitCircumference function here:
 
+function orbitCircumference(altitude = 2000) {
+  return Math.round(2 * Math.PI * altitude);
+}
+
+console.log(orbitCircumference(2000));
 
 // Code your missionDuration function here:
 
+function missionDuration(numOrbits, radiusOrbit = 2000, speedOrbit = 28000) {
+  return Math.round(((numOrbits * orbitCircumference(radiusOrbit)) / speedOrbit)*100)/100;
+}
+
+console.log(missionDuration(3));
 
 // Copy/paste your selectRandomEntry function here:
 
+function selectRandomEntry(arr) {
+  let entries = [];
+  let randomNum = 0;
+  while (entries.length < 1) {
+    randomNum = Math.floor(Math.random()*arr.length);
+    if (entries.includes(arr[randomNum]) === false) {
+      entries.push(arr[randomNum]);
+    }
+  }
+  return entries[0];
+}
 
 // Code your oxygenExpended function here:
 
+function oxygenExpended(candidate, spacewalkOrbits = 3, radiusOrbit = 2000, speedOrbit = 28000) {
+  let oxygenUsed = Math.round(candidate.o2Used(missionDuration(spacewalkOrbits))*1000)/1000;
+  let durationSpacewalk = missionDuration(spacewalkOrbits, radiusOrbit, speedOrbit);
+  return console.log(`${candidate.name} will perform the spacewalk, which will last ${durationSpacewalk} hours and require ${oxygenUsed} kg of Oxygen.`);
+}
 
 // Candidate data & crew array.
 let candidateA = {
@@ -55,4 +81,25 @@ let candidateA = {
  };
  
  let crew = [candidateA,candidateC,candidateE];
+ let numOrbits = 5
+
+ console.log(`The mission will travel ${orbitCircumference() * numOrbits} km around the planet, and it will take ${missionDuration(numOrbits)} hours to complete.`);
+
+ // Spacewalker chosen randomly
+ let randomSpacewalker = selectRandomEntry(crew);
+ oxygenExpended(randomSpacewalker);
+
+ // Bonus: spacewalker chosen by lowest oxygen usage
  
+ function selectEfficientSpacewalker(candidates) {
+    let mostEfficient = candidates[0];
+    for (i = 0; i < candidates.length; i++) {
+      if (mostEfficient.o2Used(1) > candidates[i].o2Used(1)) {
+        mostEfficient = candidates[i];
+      }
+    }
+    return mostEfficient;
+ }
+ 
+ let efficientSpacewalker = selectEfficientSpacewalker(crew);
+ oxygenExpended(efficientSpacewalker);
