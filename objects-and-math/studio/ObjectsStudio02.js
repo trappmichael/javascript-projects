@@ -89,7 +89,7 @@ let candidateA = {
  let randomSpacewalker = selectRandomEntry(crew);
  oxygenExpended(randomSpacewalker);
 
- // Bonus: spacewalker chosen by lowest oxygen usage
+ // Bonus: spacewalker chosen by oxygen usage efficiency
  
  function selectEfficientSpacewalker(candidates) {
     let mostEfficient = candidates[0];
