@@ -29,4 +29,33 @@ describe ("Testing launchOutput() function", function() {
   test("Returns 'Launch!' when passed a number only divisible by 2", function() {
     expect(launchcodeStuff.launchOutput(2)).toBe('Launch!');
   });
-})
+
+  test("Returns 'Code!' when passed a number only divisible by 3", function() {
+    expect(launchcodeStuff.launchOutput(3)).toBe('Code!');
+  });
+
+  test("Returns 'Rocks!' when passed a number only divisible by 5", function() {
+    expect(launchcodeStuff.launchOutput(5)).toBe('Rocks!');
+  });
+
+  test("Returns 'LaunchCode!' when passed a number divisible by 2 and 3", function() {
+    expect(launchcodeStuff.launchOutput(6)).toBe('LaunchCode!');
+  });
+
+  test("Returns 'Code Rocks!' when passed a number divisible by 3 and 5", function() {
+    expect(launchcodeStuff.launchOutput(15)).toBe('Code Rocks!');
+  });
+
+  test("Returns 'Launch Rocks! (CRASH!!!!)' when passed a number divisible by 2 and 5", function() {
+    expect(launchcodeStuff.launchOutput(10)).toBe('Launch Rocks! (CRASH!!!!)');
+  });
+
+  test("Returns 'LaunchCode Rocks!' when passed a number divisible by 2, 3, and 5", function() {
+    expect(launchcodeStuff.launchOutput(30)).toBe('LaunchCode Rocks!');
+  });
+
+  test("Returns 'Rutabagas! That doesn't work.' when passed a number not divisible by 2, 3, or 5", function() {
+    expect(launchcodeStuff.launchOutput(29)).toBe("Rutabagas! That doesn't work.");
+  });
+
+});
